@@ -1,0 +1,8 @@
+plugins {
+    id 'kotlin'
+}
+apply from: '../gradle/publish-java.gradle'
+
+dependencies {
+    api project(":core")
+}

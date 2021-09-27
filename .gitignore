@@ -1,0 +1,13 @@
+.gradle
+/local.properties
+.DS_Store
+build
+/captures
+.idea/*
+!.idea/codeStyles
+!.idea/dictionaries
+!.idea/fileTemplates
+!.idea/file.template.settings.xml
+!.idea/inspectionProfiles
+.idea/vcs.xml
+*.iml

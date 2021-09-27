@@ -1,0 +1,17 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+apply from: '../gradle/publish-android.gradle'
+
+android {
+    namespace 'ru.tinkoff.kotea'
+}
+
+dependencies {
+    api project(":core")
+
+    implementation libs.androidx.fragment.ktx
+    implementation libs.androidx.lifecycle.runtime
+    implementation libs.androidx.lifecycle.viewmodel
+}
