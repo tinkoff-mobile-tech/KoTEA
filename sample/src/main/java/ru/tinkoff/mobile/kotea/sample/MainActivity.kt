@@ -1,8 +1,11 @@
 package ru.tinkoff.mobile.kotea.sample
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import ru.tinkoff.kotea.android.lifecycle.collectOnCreate
 import ru.tinkoff.kotea.android.storeViaViewModel
 import ru.tinkoff.mobile.kotea.sample.CounterEvent.CounterUiEvent
@@ -10,7 +13,13 @@ import ru.tinkoff.mobile.kotea.sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private val store by storeViaViewModel { CounterStore() }
+    private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        Log.e("MainActivity", throwable.message, throwable)
+    }
+
+    private val store by storeViaViewModel(coroutineContext = Dispatchers.Default + coroutineExceptionHandler) {
+        CounterStore()
+    }
 
     private lateinit var binding: ActivityMainBinding
 

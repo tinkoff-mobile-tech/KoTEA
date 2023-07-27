@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.plus
 import ru.tinkoff.kotea.core.Store
@@ -21,7 +20,7 @@ import kotlin.reflect.KProperty
  * but you can share [Store] across a screens by specifying the [sharedViewModelKey].
  */
 fun <T : Store<*, *, *>> storeViaViewModel(
-    dispatcher: CoroutineDispatcher = Dispatchers.Default,
+    coroutineContext: CoroutineContext = Dispatchers.Default,
     sharedViewModelKey: String? = null,
     factory: () -> T
 ): ReadOnlyProperty<ViewModelStoreOwner, T> {
@@ -31,7 +30,7 @@ fun <T : Store<*, *, *>> storeViaViewModel(
         override fun getValue(thisRef: ViewModelStoreOwner, property: KProperty<*>): T {
             return value ?: run {
                 val key = sharedViewModelKey ?: keyFromProperty(thisRef, property)
-                val vm = thisRef.viewModelStore.get(key) { StoreViewModel(factory(), dispatcher) }
+                val vm = thisRef.viewModelStore.get(key) { StoreViewModel(factory(), coroutineContext) }
                 vm.store.also { value = it }
             }
         }
