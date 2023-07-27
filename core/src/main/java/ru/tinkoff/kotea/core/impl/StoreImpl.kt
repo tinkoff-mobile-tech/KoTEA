@@ -1,6 +1,6 @@
 package ru.tinkoff.kotea.core.impl
 
-import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -19,7 +19,6 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import ru.tinkoff.kotea.core.CommandsFlowHandler
 import ru.tinkoff.kotea.core.Store
-import ru.tinkoff.kotea.core.UncaughtExceptionHandler
 import ru.tinkoff.kotea.core.Update
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -34,7 +33,6 @@ internal class StoreImpl<State : Any, Event : Any, UiEvent : Event, Command : An
     private val initialCommands: List<Command> = emptyList(),
     private val commandsFlowHandlers: List<CommandsFlowHandler<Command, Event>>,
     private val update: Update<State, Event, Command, News>,
-    private val uncaughtExceptionHandler: UncaughtExceptionHandler
 ) : Store<State, UiEvent, News> {
 
     override var state = MutableStateFlow(initialState)
@@ -45,10 +43,6 @@ internal class StoreImpl<State : Any, Event : Any, UiEvent : Event, Command : An
     private val newsChannel = Channel<News>(capacity = Channel.UNLIMITED)
 
     private val isLaunched = AtomicBoolean(false)
-
-    private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
-        uncaughtExceptionHandler.handle(throwable)
-    }
 
     override fun launchIn(coroutineScope: CoroutineScope) {
         if (isLaunched.getAndSet(true)) error("Store has already been launched")
@@ -64,11 +58,11 @@ internal class StoreImpl<State : Any, Event : Any, UiEvent : Event, Command : An
         }
 
         for (flowHandler in commandsFlowHandlers) {
-            coroutineScope.launch(context = coroutineExceptionHandler, start = CoroutineStart.UNDISPATCHED) {
+            coroutineScope.launch(start = CoroutineStart.UNDISPATCHED) {
                 flowHandler.handle(commandsFlow)
                     .catch { throwable ->
-                        CommandsFlowHandlerException(flowHandler::class.java, throwable)
-                            .also(uncaughtExceptionHandler::handle)
+                        if (throwable is CancellationException) throw throwable
+                        else throw CommandsFlowHandlerException(flowHandler::class.java, throwable)
                     }
                     .collect(eventChannel::send)
             }

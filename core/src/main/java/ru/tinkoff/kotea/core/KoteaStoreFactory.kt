@@ -41,7 +41,6 @@ fun <State : Any, Event : Any, UiEvent : Event, Command : Any, News : Any> Kotea
     initialCommands: List<Command> = emptyList(),
     commandsFlowHandlers: List<CommandsFlowHandler<Command, Event>> = emptyList(),
     update: Update<State, Event, Command, News> = Update { _, _ -> Next() },
-    uncaughtExceptionHandler: UncaughtExceptionHandler = UncaughtExceptionHandler { }
 ): Store<State, UiEvent, News> {
-    return StoreImpl(initialState, initialCommands, commandsFlowHandlers, update, uncaughtExceptionHandler)
+    return StoreImpl(initialState, initialCommands, commandsFlowHandlers, update)
 }

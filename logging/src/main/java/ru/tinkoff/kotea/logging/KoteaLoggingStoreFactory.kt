@@ -4,7 +4,6 @@ import ru.tinkoff.kotea.core.CommandsFlowHandler
 import ru.tinkoff.kotea.core.KoteaStore
 import ru.tinkoff.kotea.core.Next
 import ru.tinkoff.kotea.core.Store
-import ru.tinkoff.kotea.core.UncaughtExceptionHandler
 import ru.tinkoff.kotea.core.Update
 
 /**
@@ -15,7 +14,6 @@ fun <State : Any, Event : Any, UiEvent : Event, Command : Any, News : Any> Kotea
     initialCommands: List<Command> = emptyList(),
     commandsFlowHandlers: List<CommandsFlowHandler<Command, Event>> = emptyList(),
     update: Update<State, Event, Command, News> = Update { _, _ -> Next() },
-    uncaughtExceptionHandler: UncaughtExceptionHandler = UncaughtExceptionHandler { },
     tag: String = update.javaClass.simpleName,
     logger: KoteaLogger = DefaultKoteaLogger(),
 ): Store<State, UiEvent, News> {
@@ -40,6 +38,5 @@ fun <State : Any, Event : Any, UiEvent : Event, Command : Any, News : Any> Kotea
             tag = tag,
             logger = logger,
         ),
-        uncaughtExceptionHandler
     )
 }
