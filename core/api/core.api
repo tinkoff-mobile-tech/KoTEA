@@ -1,0 +1,52 @@
+public abstract interface class ru/tinkoff/kotea/core/CommandsFlowHandler {
+	public abstract fun handle (Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
+}
+
+public final class ru/tinkoff/kotea/core/KoteaStoreFactoryKt {
+	public static final fun KoteaStore (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;Lru/tinkoff/kotea/core/UncaughtExceptionHandler;)Lru/tinkoff/kotea/core/Store;
+	public static synthetic fun KoteaStore$default (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;Lru/tinkoff/kotea/core/UncaughtExceptionHandler;ILjava/lang/Object;)Lru/tinkoff/kotea/core/Store;
+}
+
+public final class ru/tinkoff/kotea/core/Next {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getCommands ()Ljava/util/List;
+	public final fun getNews ()Ljava/util/List;
+	public final fun getState ()Ljava/lang/Object;
+}
+
+public abstract interface class ru/tinkoff/kotea/core/Store {
+	public abstract fun dispatch (Ljava/lang/Object;)V
+	public abstract fun getNews ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun launchIn (Lkotlinx/coroutines/CoroutineScope;)V
+}
+
+public abstract interface class ru/tinkoff/kotea/core/UncaughtExceptionHandler {
+	public abstract fun handle (Ljava/lang/Throwable;)V
+}
+
+public abstract interface class ru/tinkoff/kotea/core/Update {
+	public abstract fun update (Ljava/lang/Object;Ljava/lang/Object;)Lru/tinkoff/kotea/core/Next;
+}
+
+public abstract class ru/tinkoff/kotea/core/dsl/DslUpdate : ru/tinkoff/kotea/core/Update {
+	public fun <init> ()V
+	public final fun update (Ljava/lang/Object;Ljava/lang/Object;)Lru/tinkoff/kotea/core/Next;
+	protected abstract fun update (Lru/tinkoff/kotea/core/dsl/DslUpdate$NextBuilder;Ljava/lang/Object;)V
+}
+
+protected final class ru/tinkoff/kotea/core/dsl/DslUpdate$NextBuilder {
+	public fun <init> (Lru/tinkoff/kotea/core/dsl/DslUpdate;Ljava/lang/Object;)V
+	public final fun commands ([Ljava/lang/Object;)V
+	public final fun getState ()Ljava/lang/Object;
+	public final fun news ([Ljava/lang/Object;)V
+	public final fun setState (Ljava/lang/Object;)V
+	public final fun state (Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class ru/tinkoff/kotea/core/impl/CommandsFlowHandlerException : java/lang/RuntimeException {
+	public fun <init> (Ljava/lang/Class;Ljava/lang/Throwable;)V
+}
+

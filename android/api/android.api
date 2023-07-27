@@ -1,0 +1,32 @@
+public final class ru/tinkoff/kotea/android/ViewModelStoreOwnerExtKt {
+	public static final fun storeViaViewModel (Lkotlinx/coroutines/CoroutineDispatcher;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Lkotlin/properties/ReadOnlyProperty;
+	public static synthetic fun storeViaViewModel$default (Lkotlinx/coroutines/CoroutineDispatcher;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/properties/ReadOnlyProperty;
+}
+
+public final class ru/tinkoff/kotea/android/lifecycle/StoreCollectingKt {
+	public static final fun collectOnCreate (Lru/tinkoff/kotea/core/Store;Landroidx/core/app/ComponentActivity;Lru/tinkoff/kotea/android/ui/UiStateMapper;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public static final fun collectOnCreate (Lru/tinkoff/kotea/core/Store;Landroidx/fragment/app/Fragment;Lru/tinkoff/kotea/android/ui/UiStateMapper;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public static final fun collectOnCreate (Lru/tinkoff/kotea/core/Store;Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun collectOnCreate$default (Lru/tinkoff/kotea/core/Store;Landroidx/core/app/ComponentActivity;Lru/tinkoff/kotea/android/ui/UiStateMapper;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static synthetic fun collectOnCreate$default (Lru/tinkoff/kotea/core/Store;Landroidx/fragment/app/Fragment;Lru/tinkoff/kotea/android/ui/UiStateMapper;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static synthetic fun collectOnCreate$default (Lru/tinkoff/kotea/core/Store;Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+}
+
+public abstract interface class ru/tinkoff/kotea/android/ui/ResourcesProvider {
+	public abstract fun getColor (I)I
+	public abstract fun getColorStateList (I)Landroid/content/res/ColorStateList;
+	public abstract fun getDimensionPixelSize (I)I
+	public abstract fun getDrawable (I)Landroid/graphics/drawable/Drawable;
+	public abstract fun getQuantityString (II[Ljava/lang/Object;)Ljava/lang/String;
+	public abstract fun getString (I[Ljava/lang/Object;)Ljava/lang/String;
+	public abstract fun getStringArray (I)[Ljava/lang/String;
+}
+
+public abstract interface class ru/tinkoff/kotea/android/ui/UiStateMapper {
+	public abstract fun map (Lru/tinkoff/kotea/android/ui/ResourcesProvider;Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class ru/tinkoff/kotea/android/ui/UiStateMapperKt {
+	public static final fun map (Lru/tinkoff/kotea/android/ui/UiStateMapper;Lru/tinkoff/kotea/android/ui/ResourcesProvider;Ljava/lang/Object;)Ljava/lang/Object;
+}
+

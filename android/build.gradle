@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    alias(libs.plugins.gradle.binary.validator)
 }
 apply from: '../gradle/publish-android.gradle'
 
