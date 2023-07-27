@@ -1,6 +1,7 @@
 [versions]
 android-plugin = "7.4.2"
 kotlin = "1.8.21"
+binary-validator = "0.13.2"
 kotlinx-coroutines = "1.7.1"
 androidx-lifecycle = "2.6.1"
 androidx-fragment = "1.5.7"
@@ -25,3 +26,4 @@ test-turbine = { module = "app.cash.turbine:turbine", version = "0.12.3" }
 gradle-android-application = { id = "com.android.application", version.ref = "android-plugin" }
 gradle-android-library = { id = "com.android.library", version.ref = "android-plugin" }
 gradle-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+gradle-binary-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binary-validator" }
