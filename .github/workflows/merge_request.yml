@@ -10,3 +10,14 @@ jobs:
         uses: tinkoff-mobile-tech/workflows/.github/workflows/android_lib.merge_request.yml@v1
         with:
             java_version: '11'
+    api_check:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: checkout
+                uses: actions/checkout@v3
+            -   name: setup java
+                uses: actions/setup-java@v1
+                with:
+                    java-version: 11
+            -   name: check api
+                run: ./gradlew apiCheck
