@@ -44,3 +44,14 @@ fun <State : Any, Event : Any, UiEvent : Event, Command : Any, News : Any> Kotea
 ): Store<State, UiEvent, News> {
     return StoreImpl(initialState, initialCommands, commandsFlowHandlers, update)
 }
+
+@Deprecated("Use factory without uncaughtExceptionHandler (don't calling rigt now)")
+fun <State : Any, Event : Any, UiEvent : Event, Command : Any, News : Any> KoteaStore(
+    initialState: State,
+    initialCommands: List<Command> = emptyList(),
+    commandsFlowHandlers: List<CommandsFlowHandler<Command, Event>> = emptyList(),
+    update: Update<State, Event, Command, News> = Update { _, _ -> Next() },
+    uncaughtExceptionHandler: UncaughtExceptionHandler = UncaughtExceptionHandler { }
+): Store<State, UiEvent, News> {
+    return StoreImpl(initialState, initialCommands, commandsFlowHandlers, update)
+}
