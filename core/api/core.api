@@ -3,7 +3,9 @@ public abstract interface class ru/tinkoff/kotea/core/CommandsFlowHandler {
 }
 
 public final class ru/tinkoff/kotea/core/KoteaStoreFactoryKt {
-	public static final fun KoteaStore (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;Lru/tinkoff/kotea/core/UncaughtExceptionHandler;)Lru/tinkoff/kotea/core/Store;
+	public static final fun KoteaStore (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;)Lru/tinkoff/kotea/core/Store;
+	public static final synthetic fun KoteaStore (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;Lru/tinkoff/kotea/core/UncaughtExceptionHandler;)Lru/tinkoff/kotea/core/Store;
+	public static synthetic fun KoteaStore$default (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;ILjava/lang/Object;)Lru/tinkoff/kotea/core/Store;
 	public static synthetic fun KoteaStore$default (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;Lru/tinkoff/kotea/core/UncaughtExceptionHandler;ILjava/lang/Object;)Lru/tinkoff/kotea/core/Store;
 }
 

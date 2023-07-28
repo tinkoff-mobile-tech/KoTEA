@@ -1,5 +1,7 @@
 public final class ru/tinkoff/kotea/android/ViewModelStoreOwnerExtKt {
-	public static final fun storeViaViewModel (Lkotlinx/coroutines/CoroutineDispatcher;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Lkotlin/properties/ReadOnlyProperty;
+	public static final fun storeViaViewModel (Lkotlin/coroutines/CoroutineContext;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Lkotlin/properties/ReadOnlyProperty;
+	public static final synthetic fun storeViaViewModel (Lkotlinx/coroutines/CoroutineDispatcher;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Lkotlin/properties/ReadOnlyProperty;
+	public static synthetic fun storeViaViewModel$default (Lkotlin/coroutines/CoroutineContext;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/properties/ReadOnlyProperty;
 	public static synthetic fun storeViaViewModel$default (Lkotlinx/coroutines/CoroutineDispatcher;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/properties/ReadOnlyProperty;
 }
 

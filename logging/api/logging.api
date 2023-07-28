@@ -3,7 +3,9 @@ public abstract interface class ru/tinkoff/kotea/logging/KoteaLogger {
 }
 
 public final class ru/tinkoff/kotea/logging/KoteaLoggingStoreFactoryKt {
-	public static final fun KoteaLoggingStore (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;Lru/tinkoff/kotea/core/UncaughtExceptionHandler;Ljava/lang/String;Lru/tinkoff/kotea/logging/KoteaLogger;)Lru/tinkoff/kotea/core/Store;
+	public static final fun KoteaLoggingStore (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;Ljava/lang/String;Lru/tinkoff/kotea/logging/KoteaLogger;)Lru/tinkoff/kotea/core/Store;
+	public static final synthetic fun KoteaLoggingStore (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;Lru/tinkoff/kotea/core/UncaughtExceptionHandler;Ljava/lang/String;Lru/tinkoff/kotea/logging/KoteaLogger;)Lru/tinkoff/kotea/core/Store;
+	public static synthetic fun KoteaLoggingStore$default (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;Ljava/lang/String;Lru/tinkoff/kotea/logging/KoteaLogger;ILjava/lang/Object;)Lru/tinkoff/kotea/core/Store;
 	public static synthetic fun KoteaLoggingStore$default (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;Lru/tinkoff/kotea/core/Update;Lru/tinkoff/kotea/core/UncaughtExceptionHandler;Ljava/lang/String;Lru/tinkoff/kotea/logging/KoteaLogger;ILjava/lang/Object;)Lru/tinkoff/kotea/core/Store;
 }
 
