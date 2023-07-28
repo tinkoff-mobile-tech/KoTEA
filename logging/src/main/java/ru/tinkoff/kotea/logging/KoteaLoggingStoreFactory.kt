@@ -42,7 +42,7 @@ fun <State : Any, Event : Any, UiEvent : Event, Command : Any, News : Any> Kotea
     )
 }
 
-@Deprecated("Use factory without uncaughtExceptionHandler (don't calling rigt now)")
+@Deprecated("Use factory without uncaughtExceptionHandler (don't calling rigt now)", level = DeprecationLevel.HIDDEN)
 fun <State : Any, Event : Any, UiEvent : Event, Command : Any, News : Any> KoteaLoggingStore(
     initialState: State,
     initialCommands: List<Command> = emptyList(),
