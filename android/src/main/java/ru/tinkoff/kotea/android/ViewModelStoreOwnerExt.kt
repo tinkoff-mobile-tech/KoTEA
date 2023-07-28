@@ -42,7 +42,7 @@ fun <T : Store<*, *, *>> storeViaViewModel(
     }
 }
 
-@Deprecated("Use storeViewViewModel function with coroutine context param")
+@Deprecated("Use storeViewViewModel function with coroutine context param", level = DeprecationLevel.HIDDEN)
 fun <T : Store<*, *, *>> storeViaViewModel(
     dispatcher: CoroutineDispatcher = Dispatchers.Default,
     sharedViewModelKey: String? = null,
