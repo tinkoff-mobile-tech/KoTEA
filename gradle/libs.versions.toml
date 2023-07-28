@@ -2,9 +2,9 @@
 android-plugin = "7.4.2"
 kotlin = "1.8.21"
 binary-validator = "0.13.2"
-kotlinx-coroutines = "1.7.1"
+kotlinx-coroutines = "1.7.2"
 androidx-lifecycle = "2.6.1"
-androidx-fragment = "1.5.7"
+androidx-fragment = "1.6.1"
 appcompat = "1.6.1"
 
 [libraries]
