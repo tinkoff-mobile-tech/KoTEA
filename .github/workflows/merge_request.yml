@@ -9,4 +9,4 @@ jobs:
     check:
         uses: tinkoff-mobile-tech/workflows/.github/workflows/android_lib.merge_request.yml@v1
         with:
-            java_version: '11'
+            java_version: '17'
